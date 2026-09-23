@@ -120,7 +120,7 @@ export function Projects() {
           </span>
           <span className="h-[1px] w-8 bg-[rgba(245,242,237,0.2)]" aria-hidden="true" />
           <span className="font-mono text-[10px] uppercase tracking-widest text-[#77736D]">
-            SELECTED WORK
+            WORK / PROJECTS
           </span>
         </div>
 
