@@ -122,7 +122,7 @@ export function Hero() {
           <div className="flex items-center gap-3">
             <span className="h-1.5 w-1.5 rounded-full bg-[#C6B37E]" aria-hidden="true" />
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#111111] font-semibold">
-              JHALAK OMAR // PORTFOLIO 2026
+              TECH ENTHUSIAST // LIFELONG LEARNER // 2026
             </span>
           </div>
 
@@ -174,7 +174,7 @@ export function Hero() {
               <div className="pt-4 flex items-center gap-3">
                 <span className="h-[1px] w-8 bg-[#111111]/20" aria-hidden="true" />
                 <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#77736D]">
-                  BY JHALAK OMAR
+                  DRIVEN BY CURIOSITY & COFFEE
                 </span>
               </div>
             </div>

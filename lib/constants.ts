@@ -5,7 +5,7 @@
 
 export const SITE_CONFIG = {
   name: "Jhalak Omar",
-  logotype: "JHALAK.",
+  logotype: "EXPLORE.",
   title: "Jhalak Omar — AI / ML Engineer",
   shortTitle: "Jhalak Omar | AI / ML Engineer",
   description:
