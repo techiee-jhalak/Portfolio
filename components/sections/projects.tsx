@@ -270,6 +270,7 @@ function GlassProjectCard({ project, index }: { project: Project; index: number 
 
   return (
     <article
+      data-project-card="true"
       className="group relative"
       onMouseEnter={handleCardHover}
     >

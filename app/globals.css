@@ -395,6 +395,24 @@ body.scroll-locked {
 }
 
 /* ==========================================================================
+   8B. DESKTOP CUSTOM CURSOR NATIVE OVERRIDE
+   ========================================================================== */
+
+/* Only activate cursor hiding when custom cursor has safely initialized on desktop */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Always preserve standard native text caret on inputs, textareas, and editable fields */
+html.custom-cursor-active input,
+html.custom-cursor-active textarea,
+html.custom-cursor-active [contenteditable="true"],
+html.custom-cursor-active select {
+  cursor: text !important;
+}
+
+/* ==========================================================================
    9. SVG FILTERS (LIQUID DISTORTION & GOO)
    ========================================================================== */
 
