@@ -1,1 +1,402 @@
 @import "tailwindcss";
+
+/* ==========================================================================
+   1. RESET & BASE CONFIGURATION
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: #F1E8E0;
+  color: #111111;
+  font-family: var(--font-display), sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   2. THEME VARIABLES & EDITORIAL COLOR SYSTEM
+   ========================================================================== */
+
+@theme {
+  --color-cream-primary: #F1E8E0;
+  --color-cream-secondary: #E3DEDB;
+  --color-black-primary: #0A0A0A;
+  --color-black-surface: #101010;
+  --color-text-cream: #111111;
+  --color-text-black: #F5F2ED;
+  --color-text-muted: #77736D;
+  --color-gold: #C6B37E;
+  --color-accent-purple: #8A42C5;
+  --color-accent-red: #8B1E2E;
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-sans: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  /* Editorial Palette */
+  --cream-primary: #F1E8E0;
+  --cream-secondary: #E3DEDB;
+  --off-white: #E3DEDB;
+  --black-primary: #0A0A0A;
+  --black-surface: #101010;
+  --text-dark: #111111;
+  --text-light: #F5F2ED;
+  --text-muted: #77736D;
+  --grid-light: rgba(17, 17, 17, 0.08);
+  --grid-dark: rgba(245, 242, 237, 0.08);
+
+  /* Primary Accent */
+  --gold: #C6B37E;
+
+  /* Micro-interaction Accents Only */
+  --accent-purple: #8A42C5;
+  --accent-red: #8B1E2E;
+
+  /* Glass Tokens */
+  --dark-glass: rgba(30, 30, 28, 0.55);
+  --dark-glass-border: rgba(255, 255, 255, 0.08);
+  --dark-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   3. EDITORIAL ARCHITECTURAL GRIDS (PURE CSS)
+   ========================================================================== */
+
+/* Light section grid (on Cream) */
+.editorial-grid-light {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(17, 17, 17, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.06) 1px, transparent 1px);
+}
+
+@media (min-width: 768px) {
+  .editorial-grid-light {
+    background-size: 64px 64px;
+    background-image: 
+      linear-gradient(to right, rgba(17, 17, 17, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(17, 17, 17, 0.07) 1px, transparent 1px);
+  }
+}
+
+/* Dark section grid (on Deep Black) */
+.editorial-grid-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(245, 242, 237, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 242, 237, 0.06) 1px, transparent 1px);
+}
+
+@media (min-width: 768px) {
+  .editorial-grid-dark {
+    background-size: 64px 64px;
+    background-image: 
+      linear-gradient(to right, rgba(245, 242, 237, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245, 242, 237, 0.07) 1px, transparent 1px);
+  }
+}
+
+/* Subtle Technical Grain / Noise layer */
+.editorial-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   4. DISTORTED & EXPERIMENTAL DISPLAY TYPOGRAPHY
+   ========================================================================== */
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Custom horizontal stretching & condensed experimental display */
+.typography-stretched {
+  display: inline-block;
+  transform: scaleX(1.18);
+  transform-origin: left center;
+  letter-spacing: -0.06em;
+}
+
+.typography-stretched-center {
+  display: inline-block;
+  transform: scaleX(1.16);
+  transform-origin: center center;
+  letter-spacing: -0.05em;
+}
+
+.typography-condensed {
+  display: inline-block;
+  transform: scaleX(0.88);
+  transform-origin: left center;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   5. SELECTION & SCROLLBAR
+   ========================================================================== */
+
+::selection {
+  background-color: #C6B37E;
+  color: #0A0A0A;
+}
+
+::-moz-selection {
+  background-color: #C6B37E;
+  color: #0A0A0A;
+}
+
+/* Understated custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1E8E0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #77736D;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #111111;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #77736D #F1E8E0;
+}
+
+/* ==========================================================================
+   6. GLASS UTILITIES
+   ========================================================================== */
+
+.glass-card {
+  background: var(--dark-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--dark-glass-border);
+  border-radius: 14px;
+  box-shadow: var(--dark-glass-shadow);
+}
+
+.glass-pill {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #F5F2ED;
+}
+
+.glass-field {
+  background: rgba(30, 30, 28, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+.glass-row {
+  background: rgba(30, 30, 28, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   7. KEYFRAMES — MARQUEE, FLOAT, DRIP, PRELOADER
+   ========================================================================== */
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-slow-spin {
+  animation: slowSpin 22s linear infinite;
+}
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-reveal-1 { animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s backwards; }
+.hero-reveal-2 { animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.16s backwards; }
+.hero-reveal-3 { animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.28s backwards; }
+.hero-reveal-4 { animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.42s backwards; }
+
+/* Infinite marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track-fast {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+/* Floating stickers */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px) rotate(var(--float-rotate, -3deg)); }
+  50% { transform: translateY(-6px) rotate(var(--float-rotate, -3deg)); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px) rotate(var(--float-rotate, 2deg)); }
+  50% { transform: translateY(6px) rotate(var(--float-rotate, 2deg)); }
+}
+
+.float-sticker {
+  animation: floatA var(--float-duration, 4s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+.float-sticker-alt {
+  animation: floatB var(--float-duration, 4s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+/* Dripping / melting blobs */
+@keyframes drip {
+  0% {
+    transform: translateY(-2px) scaleY(0.4) scaleX(0.8);
+    opacity: 0.6;
+  }
+  40% {
+    transform: translateY(8px) scaleY(1.2) scaleX(0.7);
+    opacity: 0.9;
+  }
+  70% {
+    transform: translateY(14px) scaleY(0.9) scaleX(0.85);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(18px) scaleY(0.5) scaleX(0.9);
+    opacity: 0;
+  }
+}
+
+.drip-blob {
+  animation: drip var(--drip-duration, 3s) ease-in infinite;
+  animation-delay: var(--drip-delay, 0s);
+}
+
+/* Preloader diamond reveal */
+@keyframes diamondReveal {
+  0% {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  }
+  100% {
+    clip-path: polygon(50% -100%, 200% 50%, 50% 200%, -100% 50%);
+  }
+}
+
+.diamond-reveal {
+  animation: diamondReveal 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* Preloader counter */
+@keyframes preloaderFade {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ==========================================================================
+   8. ACCESSIBILITY & REDUCED MOTION
+   ========================================================================== */
+
+:focus-visible {
+  outline: 1.5px solid #C6B37E;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-slow-spin {
+    animation: none !important;
+  }
+
+  .marquee-track,
+  .marquee-track-fast {
+    animation: none !important;
+  }
+
+  .float-sticker,
+  .float-sticker-alt {
+    animation: none !important;
+  }
+
+  .drip-blob {
+    animation: none !important;
+  }
+}
+
+/* Section scroll-margin for sticky header synchronization */
+[data-section] {
+  scroll-margin-top: 56px;
+}
+
+body.scroll-locked {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   9. SVG FILTERS (LIQUID DISTORTION & GOO)
+   ========================================================================== */
+
+/* Goo filter for dripping effect — referenced in JSX as url(#goo) */
+/* The actual SVG filter definition is inline in the component */
